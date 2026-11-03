@@ -60,9 +60,12 @@ Version 1.x uses a different single-file updater. Install or extract 2.x manuall
 
 Check for updates in **Config → Software updates**. AgentRelay verifies the signed manifest and platform archive checksum, waits for active tasks, backs up the app and business data, and then replaces the program. A failed startup restores the previous app, data and upgrade history. New writes pause during handoff; task queries remain available.
 
+If an older 2.0.4/2.0.5 Windows build reports that the update helper stopped, install 2.0.6 over the existing directory once. Keep the same data directory; configuration and task records are retained. Version 2.0.6 fixes that helper startup problem for subsequent updates.
+
 ## What changed in 2.0.6
 
 - Desktop updates use the system proxy/PAC and allow up to ten minutes for large downloads, while checking every redirect, manifest signature, archive size and SHA-256.
+- The Windows update helper runs independently of the closing desktop process, with startup acknowledgement and rollback protection.
 - Electron desktop for Windows x64 and macOS ARM64, with bundled Chromium.
 - Reliable close-to-tray behavior, preserved drafts, and background task continuity.
 - Startup client checks, migration loading screen, instant theme/language controls, and consistent window layouts.
