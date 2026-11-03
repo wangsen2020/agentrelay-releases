@@ -2,7 +2,7 @@
 
 [English](README.md)
 
-**2.0.5 · Windows x64 / macOS Apple Silicon** · [下载与发行记录](https://github.com/wangsen2020/agentrelay-releases/releases/latest)
+**2.0.6 · Windows x64 / macOS Apple Silicon** · [下载与发行记录](https://github.com/wangsen2020/agentrelay-releases/releases/latest)
 
 [GoodExts 官网](https://goodexts.com/) · [产品详情](https://goodexts.com/agentrelay) · [XFollower 接入教程](https://goodexts.com/blog/xfollower-agentrelay)
 
@@ -12,8 +12,10 @@ AgentRelay 把本机 Codex、Grok Bot、Antigravity 连接为统一的本地 AI 
 
 源码在私有仓库维护；公开仓库仅提供产品说明和发行文件。三方组件保留各自许可。
 
-## 2.0.5 更新
+## 2.0.6 更新
 
+- 桌面更新下载沿用系统代理与 PAC，大包下载时限增至 10 分钟；继续逐跳检查域名并校验签名、大小与 SHA-256。
+- 修复 Windows 更新助手随旧桌面进程退出而中断；独立后台执行、启动确认与失败回退继续生效。
 - Electron + electron-vite 跨平台桌面程序，自带 Chromium，Windows 不再依赖 WebView2。
 - 启动引导先等待旧任务结束、备份并迁移数据，再启动服务和检测 AI 客户端；可启动客户端、跳过，或等待 10 秒进入首页。
 - 关闭主窗口只隐藏界面，后台服务和任务继续运行；托盘单击、双击恢复原页面和输入。明确“退出”时先等待任务完成。
@@ -24,12 +26,14 @@ AgentRelay 把本机 Codex、Grok Bot、Antigravity 连接为统一的本地 AI 
 
 ## 安装与首次运行
 
+旧 2.0.4 / 2.0.5 Windows 若提示更新助手已停止，请用 2.0.6 安装包覆盖原目录一次，保留原数据路径；新版修复后续更新的助手启动问题。
+
 | 平台 | 文件 | 用法 |
 | --- | --- | --- |
-| Windows 10/11 x64 | `AgentRelay-2.0.5-win-x64.exe` | 安装向导，可选目录与快捷方式 |
-| Windows 10/11 x64 | `AgentRelay-2.0.5-win-x64.zip` | 解压完整目录，运行 `AgentRelay.exe` |
-| macOS Apple Silicon | `AgentRelay-2.0.5-mac-arm64.dmg` | 打开映像，将应用复制到 Applications |
-| macOS Apple Silicon | `AgentRelay-2.0.5-mac-arm64.zip` | 解压并运行完整 `AgentRelay.app` |
+| Windows 10/11 x64 | `AgentRelay-2.0.6-win-x64.exe` | 安装向导，可选目录与快捷方式 |
+| Windows 10/11 x64 | `AgentRelay-2.0.6-win-x64.zip` | 解压完整目录，运行 `AgentRelay.exe` |
+| macOS Apple Silicon | `AgentRelay-2.0.6-mac-arm64.dmg` | 打开映像，将应用复制到 Applications |
+| macOS Apple Silicon | `AgentRelay-2.0.6-mac-arm64.zip` | 解压并运行完整 `AgentRelay.app` |
 
 Windows 默认安装到 `%LOCALAPPDATA%\Programs\AgentRelay`。便携目录中的其他文件也是程序的一部分，不能只复制 EXE。安装版与便携版共享数据目录，不要同时运行；卸载保留业务数据。
 
