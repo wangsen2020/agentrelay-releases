@@ -8,12 +8,12 @@ A local AI service for browser extensions, websites and desktop workflows. Conne
 
 This repository contains product documentation and binary releases. Application source is maintained privately. Third-party components retain their respective licenses.
 
-## Download 2.0.5
+## Download 2.0.6
 
 | Platform | Installer | Portable archive |
 | --- | --- | --- |
-| Windows 10/11 x64 | [Windows setup](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.0.5/AgentRelay-2.0.5-win-x64.exe) | [Windows ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.0.5/AgentRelay-2.0.5-win-x64.zip) |
-| macOS Apple Silicon | [macOS DMG](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.0.5/AgentRelay-2.0.5-mac-arm64.dmg) | [macOS ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.0.5/AgentRelay-2.0.5-mac-arm64.zip) |
+| Windows 10/11 x64 | [Windows setup](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.0.6/AgentRelay-2.0.6-win-x64.exe) | [Windows ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.0.6/AgentRelay-2.0.6-win-x64.zip) |
+| macOS Apple Silicon | [macOS DMG](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.0.6/AgentRelay-2.0.6-mac-arm64.dmg) | [macOS ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.0.6/AgentRelay-2.0.6-mac-arm64.zip) |
 
 [All releases and checksums](https://github.com/wangsen2020/agentrelay-releases/releases)
 
@@ -60,8 +60,9 @@ Version 1.x uses a different single-file updater. Install or extract 2.x manuall
 
 Check for updates in **Config → Software updates**. AgentRelay verifies the signed manifest and platform archive checksum, waits for active tasks, backs up the app and business data, and then replaces the program. A failed startup restores the previous app, data and upgrade history. New writes pause during handoff; task queries remain available.
 
-## What changed in 2.0.5
+## What changed in 2.0.6
 
+- Desktop updates use the system proxy/PAC and allow up to ten minutes for large downloads, while checking every redirect, manifest signature, archive size and SHA-256.
 - Electron desktop for Windows x64 and macOS ARM64, with bundled Chromium.
 - Reliable close-to-tray behavior, preserved drafts, and background task continuity.
 - Startup client checks, migration loading screen, instant theme/language controls, and consistent window layouts.
