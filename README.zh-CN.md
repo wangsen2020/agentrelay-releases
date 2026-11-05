@@ -2,7 +2,7 @@
 
 [English](README.md)
 
-**2.0.6 · Windows x64 / macOS Apple Silicon** · [下载与发行记录](https://github.com/wangsen2020/agentrelay-releases/releases/latest)
+**2.3.4 · Windows x64 / macOS Apple Silicon** · [下载与发行记录](https://github.com/wangsen2020/agentrelay-releases/releases/latest)
 
 [GoodExts 官网](https://goodexts.com/) · [产品详情](https://goodexts.com/agentrelay) · [XFollower 接入教程](https://goodexts.com/blog/xfollower-agentrelay)
 
@@ -12,7 +12,18 @@ AgentRelay 把本机 Codex、Grok Bot、Antigravity 连接为统一的本地 AI 
 
 源码在私有仓库维护；公开仓库仅提供产品说明和发行文件。三方组件保留各自许可。
 
-## 2.0.6 更新
+## 2.3.4 更新
+
+- 新增独立会话管理窗口，按来源、标题、ID、工作区和任意日期范围筛选。
+- Codex 支持批量归档、恢复与删除；Antigravity IDE 删除会话正文和摘要；Grok Bot 可浏览已有 Bot 和复制原始 ID。
+- 已归档会话从专用入口查看。刷新和重启后继续遵循原客户端状态，清理已删除的摘要和旧本地别名。
+- SQLite 持久保存请求、回执、结果和状态轨迹，启动时先迁移旧任务记录，再打开主窗口。
+- 原任务 ID 和原消息回执支持结果恢复；发送状态不明确时保留记录供核对。
+- 主窗口单向同步语言与主题，子窗口保留筛选与选择；会话窗口默认更宽，并适配屏幕可用空间。
+
+![AgentRelay 中文会话管理界面，使用演示数据](https://goodexts.com/images/agentrelay/zh/sessions.png)
+
+以下桌面能力继续可用。
 
 - 桌面更新下载沿用系统代理与 PAC，大包下载时限增至 10 分钟；继续逐跳检查域名并校验签名、大小与 SHA-256。
 - 修复 Windows 更新助手随旧桌面进程退出而中断；独立后台执行、启动确认与失败回退继续生效。
@@ -30,10 +41,10 @@ AgentRelay 把本机 Codex、Grok Bot、Antigravity 连接为统一的本地 AI 
 
 | 平台 | 文件 | 用法 |
 | --- | --- | --- |
-| Windows 10/11 x64 | `AgentRelay-2.0.6-win-x64.exe` | 安装向导，可选目录与快捷方式 |
-| Windows 10/11 x64 | `AgentRelay-2.0.6-win-x64.zip` | 解压完整目录，运行 `AgentRelay.exe` |
-| macOS Apple Silicon | `AgentRelay-2.0.6-mac-arm64.dmg` | 打开映像，将应用复制到 Applications |
-| macOS Apple Silicon | `AgentRelay-2.0.6-mac-arm64.zip` | 解压并运行完整 `AgentRelay.app` |
+| Windows 10/11 x64 | `AgentRelay-2.3.4-win-x64.exe` | 安装向导，可选目录与快捷方式 |
+| Windows 10/11 x64 | `AgentRelay-2.3.4-win-x64.zip` | 解压完整目录，运行 `AgentRelay.exe` |
+| macOS Apple Silicon | `AgentRelay-2.3.4-mac-arm64.dmg` | 打开映像，将应用复制到 Applications |
+| macOS Apple Silicon | `AgentRelay-2.3.4-mac-arm64.zip` | 解压并运行完整 `AgentRelay.app` |
 
 Windows 默认安装到 `%LOCALAPPDATA%\Programs\AgentRelay`。便携目录中的其他文件也是程序的一部分，不能只复制 EXE。安装版与便携版共享数据目录，不要同时运行；卸载保留业务数据。
 
@@ -79,7 +90,7 @@ Windows 数据为 `%APPDATA%\AgentRelay`，Mac 为 `~/Library/Application Suppor
 
 旧 Grok Bot `/bots`、`/ask`、`/send`、`/thread`、`/jobs` 等路由保留；`/ask` 使用 `bot`、`text`、可选 `timeoutMs` 并直接等待回复。测试页支持 Enter 发送、Shift+Enter 换行；会话菜单可搜索、长标题省略，展开不推动输入框。
 
-Antigravity 的可选 `notifyThreadId` 主动回执目前仅支持 Windows Codex 桌面适配。Mac 使用普通任务轮询，主动通知请求在发送前返回不支持。各产品内部通信接口可能随版本调整。ACP 实验路由不在本次发行范围。
+Antigravity 的可选 `notifyThreadId` 主动回执目前仅支持 Windows Codex 桌面适配。Mac 使用普通任务轮询，主动通知请求在发送前返回不支持。各产品内部通信接口可能随版本调整。ACP 是需显式配置的实验接入，原生客户端路由继续作为默认入口。
 
 ## 自动更新
 
