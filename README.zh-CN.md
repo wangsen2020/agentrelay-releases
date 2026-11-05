@@ -2,7 +2,7 @@
 
 [English](README.md)
 
-**2.3.4 · Windows x64 / macOS Apple Silicon** · [下载与发行记录](https://github.com/wangsen2020/agentrelay-releases/releases/latest)
+**2.3.5 · Windows x64 / macOS Apple Silicon** · [下载与发行记录](https://github.com/wangsen2020/agentrelay-releases/releases/latest)
 
 [GoodExts 官网](https://goodexts.com/) · [产品详情](https://goodexts.com/agentrelay) · [XFollower 接入教程](https://goodexts.com/blog/xfollower-agentrelay)
 
@@ -12,7 +12,11 @@ AgentRelay 把本机 Codex、Grok Bot、Antigravity 连接为统一的本地 AI 
 
 源码在私有仓库维护；公开仓库仅提供产品说明和发行文件。三方组件保留各自许可。
 
-## 2.3.4 更新
+## 2.3.5 修复
+
+修复历史消息含 Unicode 行、段分隔符时，Codex 答案已生成却无法通过原任务编号取回的问题。按 LF 分帧并保留 UTF-8 分块和 CRLF 兼容，沿用原任务和消息凭据，不重复生成；无效协议数据及时报告错误。
+
+## 2.3.5 更新
 
 - 新增独立会话管理窗口，按来源、标题、ID、工作区和任意日期范围筛选。
 - Codex 支持批量归档、恢复与删除；Antigravity IDE 删除会话正文和摘要；Grok Bot 可浏览已有 Bot 和复制原始 ID。
@@ -41,10 +45,10 @@ AgentRelay 把本机 Codex、Grok Bot、Antigravity 连接为统一的本地 AI 
 
 | 平台 | 文件 | 用法 |
 | --- | --- | --- |
-| Windows 10/11 x64 | `AgentRelay-2.3.4-win-x64.exe` | 安装向导，可选目录与快捷方式 |
-| Windows 10/11 x64 | `AgentRelay-2.3.4-win-x64.zip` | 解压完整目录，运行 `AgentRelay.exe` |
-| macOS Apple Silicon | `AgentRelay-2.3.4-mac-arm64.dmg` | 打开映像，将应用复制到 Applications |
-| macOS Apple Silicon | `AgentRelay-2.3.4-mac-arm64.zip` | 解压并运行完整 `AgentRelay.app` |
+| Windows 10/11 x64 | `AgentRelay-2.3.5-win-x64.exe` | 安装向导，可选目录与快捷方式 |
+| Windows 10/11 x64 | `AgentRelay-2.3.5-win-x64.zip` | 解压完整目录，运行 `AgentRelay.exe` |
+| macOS Apple Silicon | `AgentRelay-2.3.5-mac-arm64.dmg` | 打开映像，将应用复制到 Applications |
+| macOS Apple Silicon | `AgentRelay-2.3.5-mac-arm64.zip` | 解压并运行完整 `AgentRelay.app` |
 
 Windows 默认安装到 `%LOCALAPPDATA%\Programs\AgentRelay`。便携目录中的其他文件也是程序的一部分，不能只复制 EXE。安装版与便携版共享数据目录，不要同时运行；卸载保留业务数据。
 

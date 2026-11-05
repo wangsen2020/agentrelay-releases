@@ -8,12 +8,16 @@ A local AI service for browser extensions, websites and desktop workflows. Conne
 
 This repository contains product documentation and binary releases. Application source is maintained privately. Third-party components retain their respective licenses.
 
-## Download 2.3.4
+## 2.3.5 fix
+
+Fixes Codex result recovery when conversation history contains Unicode line or paragraph separators. JSON-RPC uses LF framing with UTF-8 chunk handling and CRLF compatibility; existing job IDs and exact message receipts are reused without another generation. Invalid protocol data now reports an error instead of waiting for a timeout.
+
+## Download 2.3.5
 
 | Platform | Installer | Portable archive |
 | --- | --- | --- |
-| Windows 10/11 x64 | [Windows setup](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.4/AgentRelay-2.3.4-win-x64.exe) | [Windows ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.4/AgentRelay-2.3.4-win-x64.zip) |
-| macOS Apple Silicon | [macOS DMG](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.4/AgentRelay-2.3.4-mac-arm64.dmg) | [macOS ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.4/AgentRelay-2.3.4-mac-arm64.zip) |
+| Windows 10/11 x64 | [Windows setup](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.5/AgentRelay-2.3.5-win-x64.exe) | [Windows ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.5/AgentRelay-2.3.5-win-x64.zip) |
+| macOS Apple Silicon | [macOS DMG](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.5/AgentRelay-2.3.5-mac-arm64.dmg) | [macOS ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.5/AgentRelay-2.3.5-mac-arm64.zip) |
 
 [All releases and checksums](https://github.com/wangsen2020/agentrelay-releases/releases)
 
@@ -76,7 +80,7 @@ Check for updates in **Config → Software updates**. AgentRelay verifies the si
 
 If an older 2.0.4/2.0.5 Windows build reports that the update helper stopped, install 2.0.6 over the existing directory once. Keep the same data directory; configuration and task records are retained. Version 2.0.6 fixes that helper startup problem for subsequent updates.
 
-## What changed in 2.3.4
+## What changed in 2.3.5
 
 - Native conversation management with source, title, workspace and date-range filters; batch archive, restore and delete depend on the source client's capabilities.
 - Deleted Antigravity summaries and stale local Codex aliases are cleared. Archived conversations stay out of active conversation pickers after refresh and restart.
