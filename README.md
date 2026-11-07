@@ -8,6 +8,10 @@ A local AI service for browser extensions, websites and desktop workflows. Conne
 
 This repository contains product documentation and binary releases. Application source is maintained privately. Third-party components retain their respective licenses.
 
+## 2.3.7 fix
+
+Improves Grok Bot conversation discovery (GET /grokbot/sessions and GET /bots) when upstream EnsureSandBox or listAgents calls hit transient ECONNRESET network resets. Read-only discovery retries transient connection resets and falls back to the last verified session cache while Grok Bot is running and signed in. Explicit refresh requests (?refresh=1) and missing credentials still report errors immediately; message sends are never retried.
+
 ## 2.3.6 fix
 
 Improves Codex health checks and conversation discovery by waiting for helper processes to exit and retrying a stopped read-only connection once. Message sending is never automatically repeated.
@@ -16,12 +20,12 @@ Improves Codex health checks and conversation discovery by waiting for helper pr
 
 Fixes Codex result recovery when conversation history contains Unicode line or paragraph separators. JSON-RPC uses LF framing with UTF-8 chunk handling and CRLF compatibility; existing job IDs and exact message receipts are reused without another generation. Invalid protocol data now reports an error instead of waiting for a timeout.
 
-## Download 2.3.6
+## Download 2.3.7
 
 | Platform | Installer | Portable archive |
 | --- | --- | --- |
-| Windows 10/11 x64 | [Windows setup](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.6/AgentRelay-2.3.6-win-x64.exe) | [Windows ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.6/AgentRelay-2.3.6-win-x64.zip) |
-| macOS Apple Silicon | [macOS DMG](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.6/AgentRelay-2.3.6-mac-arm64.dmg) | [macOS ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.6/AgentRelay-2.3.6-mac-arm64.zip) |
+| Windows 10/11 x64 | [Windows setup](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.7/AgentRelay-2.3.7-win-x64.exe) | [Windows ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.7/AgentRelay-2.3.7-win-x64.zip) |
+| macOS Apple Silicon | [macOS DMG](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.7/AgentRelay-2.3.7-mac-arm64.dmg) | [macOS ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.7/AgentRelay-2.3.7-mac-arm64.zip) |
 
 [All releases and checksums](https://github.com/wangsen2020/agentrelay-releases/releases)
 

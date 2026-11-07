@@ -2,7 +2,7 @@
 
 [English](README.md)
 
-**2.3.5 · Windows x64 / macOS Apple Silicon** · [下载与发行记录](https://github.com/wangsen2020/agentrelay-releases/releases/latest)
+**2.3.7 · Windows x64 / macOS Apple Silicon** · [下载与发行记录](https://github.com/wangsen2020/agentrelay-releases/releases/latest)
 
 [GoodExts 官网](https://goodexts.com/) · [产品详情](https://goodexts.com/agentrelay) · [XFollower 接入教程](https://goodexts.com/blog/xfollower-agentrelay)
 
@@ -11,6 +11,10 @@ AgentRelay 把本机 Codex、Grok Bot、Antigravity 连接为统一的本地 AI 
 ![AgentRelay 本地 AI 服务和接入设置](https://goodexts.com/images/agentrelay/zh/home.png)
 
 源码在私有仓库维护；公开仓库仅提供产品说明和发行文件。三方组件保留各自许可。
+
+## 2.3.7 修复
+
+修复 Grok Bot 会话列表（GET /grokbot/sessions、GET /bots）在公网 EnsureSandBox 或 listAgents 遇到瞬时 ECONNRESET 时偶发返回 HTTP 502 的问题：只读发现支持瞬时连接重置重试，并在客户端运行且已登录时提供最近已验证的会话缓存兜底；显式刷新与未登录错误仍立即报告，发送消息不自动重试。
 
 ## 2.3.6 修复
 
@@ -49,10 +53,10 @@ AgentRelay 把本机 Codex、Grok Bot、Antigravity 连接为统一的本地 AI 
 
 | 平台 | 文件 | 用法 |
 | --- | --- | --- |
-| Windows 10/11 x64 | `AgentRelay-2.3.5-win-x64.exe` | 安装向导，可选目录与快捷方式 |
-| Windows 10/11 x64 | `AgentRelay-2.3.5-win-x64.zip` | 解压完整目录，运行 `AgentRelay.exe` |
-| macOS Apple Silicon | `AgentRelay-2.3.5-mac-arm64.dmg` | 打开映像，将应用复制到 Applications |
-| macOS Apple Silicon | `AgentRelay-2.3.5-mac-arm64.zip` | 解压并运行完整 `AgentRelay.app` |
+| Windows 10/11 x64 | `AgentRelay-2.3.7-win-x64.exe` | 安装向导，可选目录与快捷方式 |
+| Windows 10/11 x64 | `AgentRelay-2.3.7-win-x64.zip` | 解压完整目录，运行 `AgentRelay.exe` |
+| macOS Apple Silicon | `AgentRelay-2.3.7-mac-arm64.dmg` | 打开映像，将应用复制到 Applications |
+| macOS Apple Silicon | `AgentRelay-2.3.7-mac-arm64.zip` | 解压并运行完整 `AgentRelay.app` |
 
 Windows 默认安装到 `%LOCALAPPDATA%\Programs\AgentRelay`。便携目录中的其他文件也是程序的一部分，不能只复制 EXE。安装版与便携版共享数据目录，不要同时运行；卸载保留业务数据。
 
