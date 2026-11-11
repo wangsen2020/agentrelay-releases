@@ -1,6 +1,6 @@
 # AgentRelay
 
-[English](README.md)
+[English](README.md) · [简体中文](README.zh-CN.md) · [Português (Brasil)](README.pt-BR.md) · [Español](README.es.md)
 
 **2.8.3 · Windows x64 / macOS Apple Silicon** · [下载与发行记录](https://github.com/wangsen2020/agentrelay-releases/releases/latest)
 
