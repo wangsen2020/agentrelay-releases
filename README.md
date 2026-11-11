@@ -1,8 +1,10 @@
 # AgentRelay
 
-A local AI service for browser extensions, websites and desktop workflows. Connect compatible Codex, Grok Bot, Antigravity, Grok CLI and DeepSeek Harness clients through one HTTP interface, choose an existing conversation, and keep using its context across tasks.
+[English](README.md) · [简体中文](README.zh-CN.md) · [Português (Brasil)](README.pt-BR.md) · [Español](README.es.md)
 
-[GoodExts](https://goodexts.com/) · [Product details](https://goodexts.com/agentrelay) · [XFollower integration tutorial](https://goodexts.com/blog/xfollower-agentrelay) · [中文说明](README.zh-CN.md)
+A local AI service for browser extensions, websites, and desktop workflows. Connect compatible Codex, Grok Bot, Antigravity, Grok CLI, and DeepSeek Harness clients through one unified HTTP interface, choose an existing conversation, and keep using its context across tasks.
+
+[GoodExts](https://goodexts.com/) · [Product details](https://goodexts.com/agentrelay) · [XFollower integration tutorial](https://goodexts.com/blog/xfollower-agentrelay)
 
 ![AgentRelay connection settings](https://goodexts.com/images/agentrelay/en/home.png)
 
@@ -24,8 +26,8 @@ Place the `agentrelay-integration/` folder in your project or in `~/.codex/skill
 
 ## 2.8.3
 
-- **Grok CLI & DeepSeek Harness (DSH) Native Engines**: Full terminal session and local workspace discovery, multi-frame compressed stream decoding, and bidirectional task forwarding across 5 local AI clients.
-- **Grok Bot 0.12.5 (PR166) & Read Recovery**: Upstream CLI upgraded to 0.12.5, fixing the 401 "This version of Grok Bot is no longer supported" error, with bounded session read recovery preventing transient 502 Bad Gateway timeouts.
+- **Grok CLI & DeepSeek Harness (DSH) Native Engines**: Full terminal session and local workspace discovery, multi-frame compressed stream decoding, and bidirectional task forwarding across 5 local AI clients (Codex, Grok Bot, Antigravity, Grok CLI, DeepSeek Harness).
+- **Grok Bot 0.12.5 (PR166) & Read Recovery**: Upstream CLI upgraded to 0.12.5, eliminating the 401 "This version of Grok Bot is no longer supported" error, with bounded session read recovery preventing transient 502 Bad Gateway timeouts.
 - **Native Session Compaction & Owner Queues**: Dedicated session-level native compaction and queue isolation for continuous high-frequency tagging and comment workflows.
 - **Windows Installer Integrity & Occupation Fix**: Enhanced process shutdown handshake and integrity level protection during installation and in-place upgrade.
 
