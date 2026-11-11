@@ -2,27 +2,45 @@
 
 [English](README.md)
 
-**2.3.7 · Windows x64 / macOS Apple Silicon** · [下载与发行记录](https://github.com/wangsen2020/agentrelay-releases/releases/latest)
+**2.8.3 · Windows x64 / macOS Apple Silicon** · [下载与发行记录](https://github.com/wangsen2020/agentrelay-releases/releases/latest)
 
 [GoodExts 官网](https://goodexts.com/) · [产品详情](https://goodexts.com/agentrelay) · [XFollower 接入教程](https://goodexts.com/blog/xfollower-agentrelay)
 
-AgentRelay 把本机 Codex、Grok Bot、Antigravity 连接为统一的本地 AI 服务。插件、网页及其他客户端选择引擎和已有对话，使用同一个会话 ID 持续发送任务，无需每次重新拼接上下文。Codex 和 Antigravity 也支持显式创建新对话。
+AgentRelay 把本机 Codex、Grok Bot、Antigravity、Grok CLI 与 DeepSeek Harness 连接为统一的本地 AI 服务。插件、网页及其他客户端选择引擎和已有对话，使用同一个会话 ID 持续发送任务，无需每次重新拼接上下文。Codex 和 Antigravity 也支持显式创建新对话。
 
 ![AgentRelay 本地 AI 服务和接入设置](https://goodexts.com/images/agentrelay/zh/home.png)
 
-源码在私有仓库维护；公开仓库仅提供产品说明和发行文件。三方组件保留各自许可。
+源码在私有仓库维护；公开仓库仅提供产品说明、接入技能和发行文件。三方组件保留各自许可。
 
-## 2.3.7 修复
+## AI 接入 Skill
 
-修复 Grok Bot 会话列表（GET /grokbot/sessions、GET /bots）在公网 EnsureSandBox 或 listAgents 遇到瞬时 ECONNRESET 时偶发返回 HTTP 502 的问题：只读发现支持瞬时连接重置重试，并在客户端运行且已登录时提供最近已验证的会话缓存兜底；显式刷新与未登录错误仍立即报告，发送消息不自动重试。
+如果你需要让 AI 编程助手（Codex、Antigravity、Claude Code、Cursor）帮你的浏览器插件、网页或客户端接入 AgentRelay，可直接使用本仓库根目录提供的标准接入 Skill：
 
-## 2.3.6 修复
+- 📖 **Skill 说明文档**：[`agentrelay-integration/SKILL.md`](agentrelay-integration/SKILL.md)
+- 📦 **完整接入包下载**：[`agentrelay-integration.zip`](agentrelay-integration.zip)
+- 🔌 **包含组件**：
+  - `agentrelay-integration/scripts/client.mjs`（原生 ES module 客户端，即拷即用，适配 Chrome MV3 后台）
+  - `agentrelay-integration/scripts/probe.mjs`（命令行检测与全流程验证工具）
+  - `agentrelay-integration/scripts/self-test.mjs`（本地模拟服务单测，无需真实调用 AI）
 
-修复 Codex 健康检查后会话读取偶发失败：等待辅助进程退出，只读连接意外停止时最多重试一次，不自动重复发送消息。
+将 `agentrelay-integration/` 文件夹放置在你的项目内或 `~/.codex/skills/`，直接向你的 AI 发送接入指令：
+> “请读取 `agentrelay-integration/SKILL.md`，按照我的项目分支规则，将当前项目接入 AgentRelay……”
 
-## 2.3.5 修复
+## 2.8.3 更新
 
-修复历史消息含 Unicode 行、段分隔符时，Codex 答案已生成却无法通过原任务编号取回的问题。按 LF 分帧并保留 UTF-8 分块和 CRLF 兼容，沿用原任务和消息凭据，不重复生成；无效协议数据及时报告错误。
+- **Grok CLI 与 DeepSeek Harness (DSH) 双新引擎**：完整支持终端持久会话发现、多帧压缩流解码与双向指令投递，原生支持 5 大本地 AI 客户端（Codex、Grok Bot、Antigravity、Grok CLI、DeepSeek Harness）。
+- **Grok Bot 核心升级至 0.12.5 (PR166) 与读取恢复**：彻底解决服务端 401 "This version of Grok Bot is no longer supported" 版本过期阻断，并引入会话读取恢复队列，杜绝偶发 502 网关超时抖动。
+- **会话原生压缩与所有者任务队列隔离**：针对打标与评论高频业务提供会话级原生压缩支持与执行队列隔离，防止并发任务冲突。
+- **Windows 安装程序防占用与完整性保护**：重构安装与覆盖更新进程退出握手，彻底解决多实例进程占用误报与沙盒 Low Integrity 完整性标记冲突。
+
+## 下载 2.8.3
+
+| 平台 | 安装程序 | 便携压缩包 |
+| --- | --- | --- |
+| Windows 10/11 x64 | [Windows 安装包](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.8.3/AgentRelay-2.8.3-win-x64.exe) | [Windows ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.8.3/AgentRelay-2.8.3-win-x64.zip) |
+| macOS Apple Silicon | [macOS DMG](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.8.3/AgentRelay-2.8.3-mac-arm64.dmg) | [macOS ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.8.3/AgentRelay-2.8.3-mac-arm64.zip) |
+
+[所有发行版本与 SHA-256 校验](https://github.com/wangsen2020/agentrelay-releases/releases)
 
 ## 2.3.5 更新
 
