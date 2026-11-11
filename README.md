@@ -1,31 +1,40 @@
 # AgentRelay
 
-A local AI service for browser extensions, websites and desktop workflows. Connect compatible Codex, Grok Bot and Antigravity clients through one HTTP interface, choose an existing conversation, and keep using its context across tasks.
+A local AI service for browser extensions, websites and desktop workflows. Connect compatible Codex, Grok Bot, Antigravity, Grok CLI and DeepSeek Harness clients through one HTTP interface, choose an existing conversation, and keep using its context across tasks.
 
 [GoodExts](https://goodexts.com/) · [Product details](https://goodexts.com/agentrelay) · [XFollower integration tutorial](https://goodexts.com/blog/xfollower-agentrelay) · [中文说明](README.zh-CN.md)
 
 ![AgentRelay connection settings](https://goodexts.com/images/agentrelay/en/home.png)
 
-This repository contains product documentation and binary releases. Application source is maintained privately. Third-party components retain their respective licenses.
+This repository contains product documentation, integration skills, and binary releases. Application source is maintained privately. Third-party components retain their respective licenses.
 
-## 2.3.7 fix
+## AI Integration Skill
 
-Improves Grok Bot conversation discovery (GET /grokbot/sessions and GET /bots) when upstream EnsureSandBox or listAgents calls hit transient ECONNRESET network resets. Read-only discovery retries transient connection resets and falls back to the last verified session cache while Grok Bot is running and signed in. Explicit refresh requests (?refresh=1) and missing credentials still report errors immediately; message sends are never retried.
+To connect your own browser extension, website, or desktop tool to AgentRelay using AI coding assistants (Codex, Antigravity, Claude Code, Cursor), use our standard integration skill located directly in this repository:
 
-## 2.3.6 fix
+- 📖 **Skill Documentation**: [`agentrelay-integration/SKILL.md`](agentrelay-integration/SKILL.md)
+- 📦 **Download Zip**: [`agentrelay-integration.zip`](agentrelay-integration.zip)
+- 🔌 **Included Tools**:
+  - `agentrelay-integration/scripts/client.mjs` (Vanilla ES module client for MV3 background service workers)
+  - `agentrelay-integration/scripts/probe.mjs` (CLI diagnostic and verification tool)
+  - `agentrelay-integration/scripts/self-test.mjs` (Mock tests without calling real AI)
 
-Improves Codex health checks and conversation discovery by waiting for helper processes to exit and retrying a stopped read-only connection once. Message sending is never automatically repeated.
+Place the `agentrelay-integration/` folder in your project or in `~/.codex/skills/`, and ask your AI:
+> *"Read `agentrelay-integration/SKILL.md` and connect this project to AgentRelay following its branch rules..."*
 
-## 2.3.5 fix
+## 2.8.3
 
-Fixes Codex result recovery when conversation history contains Unicode line or paragraph separators. JSON-RPC uses LF framing with UTF-8 chunk handling and CRLF compatibility; existing job IDs and exact message receipts are reused without another generation. Invalid protocol data now reports an error instead of waiting for a timeout.
+- **Grok CLI & DeepSeek Harness (DSH) Native Engines**: Full terminal session and local workspace discovery, multi-frame compressed stream decoding, and bidirectional task forwarding across 5 local AI clients.
+- **Grok Bot 0.12.5 (PR166) & Read Recovery**: Upstream CLI upgraded to 0.12.5, fixing the 401 "This version of Grok Bot is no longer supported" error, with bounded session read recovery preventing transient 502 Bad Gateway timeouts.
+- **Native Session Compaction & Owner Queues**: Dedicated session-level native compaction and queue isolation for continuous high-frequency tagging and comment workflows.
+- **Windows Installer Integrity & Occupation Fix**: Enhanced process shutdown handshake and integrity level protection during installation and in-place upgrade.
 
-## Download 2.3.7
+## Download 2.8.3
 
 | Platform | Installer | Portable archive |
 | --- | --- | --- |
-| Windows 10/11 x64 | [Windows setup](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.7/AgentRelay-2.3.7-win-x64.exe) | [Windows ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.7/AgentRelay-2.3.7-win-x64.zip) |
-| macOS Apple Silicon | [macOS DMG](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.7/AgentRelay-2.3.7-mac-arm64.dmg) | [macOS ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.3.7/AgentRelay-2.3.7-mac-arm64.zip) |
+| Windows 10/11 x64 | [Windows setup](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.8.3/AgentRelay-2.8.3-win-x64.exe) | [Windows ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.8.3/AgentRelay-2.8.3-win-x64.zip) |
+| macOS Apple Silicon | [macOS DMG](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.8.3/AgentRelay-2.8.3-mac-arm64.dmg) | [macOS ZIP](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.8.3/AgentRelay-2.8.3-mac-arm64.zip) |
 
 [All releases and checksums](https://github.com/wangsen2020/agentrelay-releases/releases)
 
