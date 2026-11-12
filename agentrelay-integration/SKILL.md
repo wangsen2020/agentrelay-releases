@@ -10,9 +10,13 @@ description: 将浏览器插件、网页或客户端接入 AgentRelay 本地 AI 
 ## 使用前
 
 - 从 AgentRelay 首页获取实际服务地址与访问 Token。默认地址 `http://127.0.0.1:8787`，允许用户修改；不要假设自定义域名、HTTPS、端口扫描或免 Token 可用。
-- 公共下载：[正式发行](https://github.com/wangsen2020/agentrelay-releases/releases/latest)。截至本 skill 核查日 2026-11-11，正式版为 2.8.3；实际连接后以 `/health` 返回为准。
+- 公共下载：[正式发行](https://github.com/wangsen2020/agentrelay-releases/releases/latest)。截至本 skill 核查日 2026-11-12，正式版为 2.11.0；实际连接后以 `/health` 返回为准。
 - Token 只在用户本机配置中保存，不写源码、聊天、URL、截图或日志；扩展使用本地存储，不使用同步存储。外部插件只调用公开 API，不调用 `/ui/api` 管理接口。
 - 修改调用方项目前遵循其 AGENTS.md 和分支规则，保留已有改动与运行任务；接入不授予发布、操作真实社交账号或修改服务配置的权限。
+
+## 三方直达协作
+
+本技能保留插件/客户端的普通任务接入。需要 Codex、Antigravity 与 DeepSeek Harness 会话之间的派单、主动回执和事件驱动协作时，安装同仓库的 [agentrelay-session-bridge](../agentrelay-session-bridge/SKILL.md)。其工具区分普通 jobs 空闲唤醒与活动轮次严格 Steer；不得把普通轮询或模型文字确认冒充原生直达。
 
 ## 快速验证
 
