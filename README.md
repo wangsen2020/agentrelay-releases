@@ -2,13 +2,13 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Português (Brasil)](README.pt-BR.md) · [Español](README.es.md)
 
-**2.11.0 · Windows 10/11 x64 · EXE installer only**
+**2.13.3 · Windows 10/11 x64 · EXE installer only**
 
-AgentRelay connects compatible local Codex, Grok Bot, Antigravity, Grok CLI and DeepSeek Harness clients. Codex, Antigravity and Harness support native messages into active turns, so workers can proactively return progress and results to their orchestrator.
+AgentRelay connects compatible local Codex, Grok Bot, Antigravity, Grok CLI, DeepSeek Harness and WorkBuddy clients. Codex, Antigravity, Harness, Grok CLI and Antigravity CLI support native messages into active turns, while WorkBuddy adds desktop session reuse, an isolated official login namespace, a dedicated chat board (`/ui/workbuddy`), and public `/workbuddy/jobs` routing.
 
 ## Download
 
-[Windows x64 installer](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.11.0/AgentRelay-2.11.0-win-x64.exe) · [SHA-256 checksums](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.11.0/SHA256SUMS.txt) · [Release notes](https://github.com/wangsen2020/agentrelay-releases/releases/tag/v2.11.0)
+[Windows x64 installer](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.3/AgentRelay-2.13.3-win-x64.exe) · [SHA-256 checksums](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.3/SHA256SUMS.txt) · [Release notes](https://github.com/wangsen2020/agentrelay-releases/releases/tag/v2.13.3)
 
 Wait for active tasks to finish, explicitly quit the app, then run the EXE to upgrade. Configuration and job records remain in the existing AppData directory. This EXE-only release uses manual installation; the older ZIP-based updater is not its upgrade path.
 

@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
 
-const PROVIDERS = ['antigravity', 'codex', 'dsh', 'grokbot'];
+const PROVIDERS = ['antigravity', 'codex', 'dsh', 'grok-cli', 'grokbot', 'workbuddy'];
 const RECEIPT_DIR = path.join(os.tmpdir(), 'agentrelay-bridge-receipts');
 
 function loadRelayConfig() {

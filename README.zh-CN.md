@@ -2,13 +2,13 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Português (Brasil)](README.pt-BR.md) · [Español](README.es.md)
 
-**2.11.0 · Windows 10/11 x64 · 仅 EXE 安装包**
+**2.13.3 · Windows 10/11 x64 · 仅 EXE 安装包**
 
-连接本机 Codex、Grok Bot、Antigravity、Grok CLI 与 DeepSeek Harness。Codex、Antigravity 和 Harness 支持在活动轮次中接收原生直达消息：主控派单，子控自主执行，完成后主动回传，主控收到事件继续推进。
+连接本机 Codex、Grok Bot、Antigravity、Grok CLI、DeepSeek Harness 与 WorkBuddy。Codex、Antigravity、Harness、Grok CLI 及 Antigravity CLI 支持活动轮次原生直达引导；WorkBuddy 现已作为第 6 引擎接入，支持桌面端会话复用、独立官方扫码登录、`/ui/workbuddy` 独立对话窗口、三端消息底部快捷复制栏与公共 `/workbuddy/jobs` 接口。
 
 ## 下载与升级
 
-[Windows x64 EXE](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.11.0/AgentRelay-2.11.0-win-x64.exe) · [SHA-256 校验](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.11.0/SHA256SUMS.txt) · [发行说明](https://github.com/wangsen2020/agentrelay-releases/releases/tag/v2.11.0)
+[Windows x64 EXE](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.3/AgentRelay-2.13.3-win-x64.exe) · [SHA-256 校验](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.3/SHA256SUMS.txt) · [发行说明](https://github.com/wangsen2020/agentrelay-releases/releases/tag/v2.13.3)
 
 等待活跃任务结束，明确退出软件后运行 EXE 覆盖安装，保留原 AppData 配置与任务记录。本版手动升级，不将旧 ZIP 自动更新通道作为此次升级路径。
 
