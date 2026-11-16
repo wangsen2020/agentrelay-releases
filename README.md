@@ -2,9 +2,21 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Português (Brasil)](README.pt-BR.md) · [Español](README.es.md)
 
-**2.13.3 · Windows 10/11 x64 · EXE installer only**
+**2.13.3 · Windows 10/11 x64 · EXE installer only · Official Website: [GoodExts](https://goodexts.com) ([AgentRelay Product Page](https://goodexts.com/agentrelay))**
 
-AgentRelay connects compatible local Codex, Grok Bot, Antigravity, Grok CLI, DeepSeek Harness and WorkBuddy clients. Codex, Antigravity, Harness, Grok CLI and Antigravity CLI support native messages into active turns, while WorkBuddy adds desktop session reuse, an isolated official login namespace, a dedicated chat board (`/ui/workbuddy`), and public `/workbuddy/jobs` routing.
+AgentRelay, built by [GoodExts](https://goodexts.com), connects compatible local Codex, Grok Bot, Antigravity, Grok CLI, DeepSeek Harness and WorkBuddy clients. Codex, Antigravity, Harness, Grok CLI and Antigravity CLI support native messages into active turns, while WorkBuddy adds desktop session reuse, an isolated official login namespace, a dedicated chat board (`/ui/workbuddy`), and public `/workbuddy/jobs` routing.
+
+## Screenshots
+
+### Desktop Control Panel & WorkBuddy Chat
+| Control Panel | WorkBuddy Chat (`/ui/workbuddy`) |
+| --- | --- |
+| ![AgentRelay Desktop Control Panel](assets/screenshots/home-en.webp) | ![AgentRelay WorkBuddy Chat](assets/screenshots/workbuddy-chat.webp) |
+
+### Session Manager & Native Client Boards
+| Session Manager (`/ui/sessions`) | Antigravity (`/ui/antigravity`) | Grok CLI (`/ui/grok-cli`) |
+| --- | --- | --- |
+| ![Session Manager](assets/screenshots/session-manager.webp) | ![Antigravity Chat](assets/screenshots/antigravity.png) | ![Grok CLI Chat](assets/screenshots/grok-cli.png) |
 
 ## Download
 
@@ -40,4 +52,4 @@ Idle Codex continuation, crash self-recovery, unlimited unattended work and a fi
 
 Application source remains private. These public skills contain generic API helpers and workflow instructions, not model credentials or service source. Third-party components retain their licenses.
 
-[Product and setup guides](https://goodexts.com/agentrelay)
+[GoodExts Official Website](https://goodexts.com) · [AgentRelay Product and Setup Guides](https://goodexts.com/agentrelay)

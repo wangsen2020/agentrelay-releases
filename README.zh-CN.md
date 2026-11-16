@@ -2,9 +2,21 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Português (Brasil)](README.pt-BR.md) · [Español](README.es.md)
 
-**2.13.3 · Windows 10/11 x64 · 仅 EXE 安装包**
+**2.13.3 · Windows 10/11 x64 · 仅 EXE 安装包 · 官网：[GoodExts](https://goodexts.com)（[AgentRelay 产品页](https://goodexts.com/zh/agentrelay)）**
 
-连接本机 Codex、Grok Bot、Antigravity、Grok CLI、DeepSeek Harness 与 WorkBuddy。Codex、Antigravity、Harness、Grok CLI 及 Antigravity CLI 支持活动轮次原生直达引导；WorkBuddy 现已作为第 6 引擎接入，支持桌面端会话复用、独立官方扫码登录、`/ui/workbuddy` 独立对话窗口、三端消息底部快捷复制栏与公共 `/workbuddy/jobs` 接口。
+AgentRelay 由 [GoodExts 官网](https://goodexts.com) 出品，用于连接本机 Codex、Grok Bot、Antigravity、Grok CLI、DeepSeek Harness 与 WorkBuddy。Codex、Antigravity、Harness、Grok CLI 及 Antigravity CLI 支持活动轮次原生直达引导；WorkBuddy 现已作为第 6 引擎接入，支持桌面端会话复用、独立官方扫码登录、`/ui/workbuddy` 独立对话窗口、三端消息底部快捷复制栏与公共 `/workbuddy/jobs` 接口。
+
+## 界面截图
+
+### 桌面控制面板与 WorkBuddy 对话窗口
+| 桌面控制面板 | WorkBuddy 对话窗口（`/ui/workbuddy`） |
+| --- | --- |
+| ![AgentRelay 桌面控制面板](assets/screenshots/home-zh.webp) | ![AgentRelay WorkBuddy 对话窗口](assets/screenshots/workbuddy-chat.webp) |
+
+### 会话管理与原生客户端独立看板
+| 会话管理（`/ui/sessions`） | Antigravity（`/ui/antigravity`） | Grok CLI（`/ui/grok-cli`） |
+| --- | --- | --- |
+| ![会话管理](assets/screenshots/session-manager.webp) | ![Antigravity 对话窗口](assets/screenshots/antigravity.png) | ![Grok CLI 对话窗口](assets/screenshots/grok-cli.png) |
 
 ## 下载与升级
 
@@ -36,4 +48,4 @@ Windows 实测三方六向直达、双方随机 nonce 原样匹配及两份 DONE
 
 应用源码保持私有。公开技能只有通用 API 工具与工作流说明，不含账户凭据或服务源码。
 
-[GoodExts 产品页与接入指南](https://goodexts.com/zh/agentrelay)
+[GoodExts 官网](https://goodexts.com) · [AgentRelay 产品页与接入指南](https://goodexts.com/zh/agentrelay)

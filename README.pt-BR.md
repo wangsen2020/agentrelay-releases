@@ -2,9 +2,21 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Português (Brasil)](README.pt-BR.md) · [Español](README.es.md)
 
-**2.13.3 · Windows 10/11 x64 · Somente instalador EXE**
+**2.13.3 · Windows 10/11 x64 · Somente instalador EXE · Site oficial: [GoodExts](https://goodexts.com) ([Página do AgentRelay](https://goodexts.com/pt-br/agentrelay))**
 
-Conecte Codex, Grok Bot, Antigravity, Grok CLI, DeepSeek Harness e WorkBuddy locais. Codex, Antigravity, Harness, Grok CLI e Antigravity CLI aceitam mensagens nativas em turnos ativos (`POST /steer`); o WorkBuddy passa a integrar como 6º motor com reutilização de sessões do desktop, login QR isolado, janela `/ui/workbuddy`, barra rápida de cópia por mensagem e endpoints públicos `/workbuddy/jobs`.
+O AgentRelay, desenvolvido pela [GoodExts](https://goodexts.com), conecta Codex, Grok Bot, Antigravity, Grok CLI, DeepSeek Harness e WorkBuddy locais. Codex, Antigravity, Harness, Grok CLI e Antigravity CLI aceitam mensagens nativas em turnos ativos (`POST /steer`); o WorkBuddy passa a integrar como 6º motor com reutilização de sessões do desktop, login QR isolado, janela `/ui/workbuddy`, barra rápida de cópia por mensagem e endpoints públicos `/workbuddy/jobs`.
+
+## Capturas de tela
+
+### Painel de controle e chat do WorkBuddy
+| Painel de controle | Chat do WorkBuddy (`/ui/workbuddy`) |
+| --- | --- |
+| ![Painel de controle do AgentRelay](assets/screenshots/home-en.webp) | ![Chat do WorkBuddy no AgentRelay](assets/screenshots/workbuddy-chat.webp) |
+
+### Gerenciador de sessões e janelas nativas
+| Gerenciador de sessões (`/ui/sessions`) | Antigravity (`/ui/antigravity`) | Grok CLI (`/ui/grok-cli`) |
+| --- | --- | --- |
+| ![Gerenciador de sessões](assets/screenshots/session-manager.webp) | ![Chat do Antigravity](assets/screenshots/antigravity.png) | ![Chat do Grok CLI](assets/screenshots/grok-cli.png) |
 
 ## Download e atualização
 
@@ -36,4 +48,4 @@ O teste não comprova continuação automática do Codex ocioso, recuperação d
 
 O código do aplicativo permanece privado. As skills públicas contêm ferramentas de API e instruções, sem credenciais ou código do serviço.
 
-[Produto e guias](https://goodexts.com/pt-br/agentrelay)
+[Site oficial da GoodExts](https://goodexts.com) · [Produto e guias do AgentRelay](https://goodexts.com/pt-br/agentrelay)
