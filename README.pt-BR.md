@@ -2,7 +2,7 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Português (Brasil)](README.pt-BR.md) · [Español](README.es.md)
 
-**2.13.3 · Windows 10/11 x64 · Somente instalador EXE · Site oficial: [GoodExts](https://goodexts.com) ([Página do AgentRelay](https://goodexts.com/pt-br/agentrelay))**
+**2.13.7 · Windows 10/11 x64 · Somente instalador EXE · Site oficial: [GoodExts](https://goodexts.com) ([Página do AgentRelay](https://goodexts.com/pt-br/agentrelay))**
 
 O AgentRelay, desenvolvido pela [GoodExts](https://goodexts.com), conecta Codex, Grok Bot, Antigravity, Grok CLI, DeepSeek Harness e WorkBuddy locais. Codex, Antigravity, Harness, Grok CLI e Antigravity CLI aceitam mensagens nativas em turnos ativos (`POST /steer`); o WorkBuddy passa a integrar como 6º motor com reutilização de sessões do desktop, login QR isolado, janela `/ui/workbuddy`, barra rápida de cópia por mensagem e endpoints públicos `/workbuddy/jobs`.
 
@@ -20,7 +20,7 @@ O AgentRelay, desenvolvido pela [GoodExts](https://goodexts.com), conecta Codex,
 
 ## Download e atualização
 
-[EXE para Windows x64](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.3/AgentRelay-2.13.3-win-x64.exe) · [SHA-256](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.3/SHA256SUMS.txt) · [Notas da versão](https://github.com/wangsen2020/agentrelay-releases/releases/tag/v2.13.3)
+[EXE para Windows x64](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.7/AgentRelay-2.13.7-win-x64.exe) · [SHA-256](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.7/SHA256SUMS.txt) · [Notas da versão](https://github.com/wangsen2020/agentrelay-releases/releases/tag/v2.13.7)
 
 Aguarde as tarefas terminarem, encerre o aplicativo e execute o EXE. A configuração e os registros permanecem no AppData existente. Esta versão requer instalação manual; o atualizador antigo baseado em ZIP não é o caminho de atualização.
 
