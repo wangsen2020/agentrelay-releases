@@ -2,9 +2,16 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Português (Brasil)](README.pt-BR.md) · [Español](README.es.md)
 
-**2.13.7 · Windows 10/11 x64 · EXE installer only · Official Website: [GoodExts](https://goodexts.com) ([AgentRelay Product Page](https://goodexts.com/agentrelay))**
+**2.13.9 · Windows 10/11 x64 · EXE installer only · Official Website: [GoodExts](https://goodexts.com) ([AgentRelay Product Page](https://goodexts.com/agentrelay))**
 
 AgentRelay, built by [GoodExts](https://goodexts.com), connects compatible local Codex, Grok Bot, Antigravity, Grok CLI, DeepSeek Harness and WorkBuddy clients. Codex, Antigravity, Harness, Grok CLI and Antigravity CLI support native messages into active turns, while WorkBuddy adds desktop session reuse, an isolated official login namespace, a dedicated chat board (`/ui/workbuddy`), and public `/workbuddy/jobs` routing.
+
+## 2.13.9 — Antigravity version compatibility
+
+- Supports Antigravity 2.34 Hub discovery and authenticated local HTTPS; retains the older `--csrf_token`, HTTP and `.pb` paths, and supports newer `.db` sessions.
+- Fixes HTTPS address validation for delete/compaction and recognizes `GENERATING` as an active turn.
+- Antigravity 2.34.0 jobs reception and active Steer were verified on Windows; older-version paths were tested with isolated fixtures.
+- Codex strict Steer still depends on its native IPC endpoint. A missing `codex-ipc` pipe is a known separate limitation; preserve unknown receipts and do not resend automatically.
 
 ## Screenshots
 
@@ -20,7 +27,7 @@ AgentRelay, built by [GoodExts](https://goodexts.com), connects compatible local
 
 ## Download
 
-[Windows x64 installer](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.7/AgentRelay-2.13.7-win-x64.exe) · [SHA-256 checksums](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.7/SHA256SUMS.txt) · [Release notes](https://github.com/wangsen2020/agentrelay-releases/releases/tag/v2.13.7)
+[Windows x64 installer](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.9/AgentRelay-2.13.9-win-x64.exe) · [SHA-256 checksums](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.9/SHA256SUMS.txt) · [Release notes](https://github.com/wangsen2020/agentrelay-releases/releases/tag/v2.13.9)
 
 Wait for active tasks to finish, explicitly quit the app, then run the EXE to upgrade. Configuration and job records remain in the existing AppData directory. This EXE-only release uses manual installation; the older ZIP-based updater is not its upgrade path.
 
