@@ -2,16 +2,17 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Português (Brasil)](README.pt-BR.md) · [Español](README.es.md)
 
-**2.13.9 · Windows 10/11 x64 · 仅 EXE 安装包 · 官网：[GoodExts](https://goodexts.com)（[AgentRelay 产品页](https://goodexts.com/zh/agentrelay)）**
+**2.14.0 · Windows 10/11 x64 · 仅 EXE 安装包 · 官网：[GoodExts](https://goodexts.com)（[AgentRelay 产品页](https://goodexts.com/zh/agentrelay)）**
 
-AgentRelay 由 [GoodExts 官网](https://goodexts.com) 出品，用于连接本机 Codex、Grok Bot、Antigravity、Grok CLI、DeepSeek Harness 与 WorkBuddy。Codex、Antigravity、Harness、Grok CLI 及 Antigravity CLI 支持活动轮次原生直达引导；WorkBuddy 现已作为第 6 引擎接入，支持桌面端会话复用、独立官方扫码登录、`/ui/workbuddy` 独立对话窗口、三端消息底部快捷复制栏与公共 `/workbuddy/jobs` 接口。
+AgentRelay 由 [GoodExts 官网](https://goodexts.com) 出品，用于连接本机 Codex、Grok Bot、Antigravity、Grok CLI、DeepSeek Harness 与 WorkBuddy。Codex、Antigravity、Harness、Grok CLI 及 Antigravity CLI 支持活动轮次原生直达引导或核验跟进；WorkBuddy 现已作为第 6 引擎接入，支持桌面端会话复用、独立官方扫码登录、`/ui/workbuddy` 独立对话窗口、三端消息底部快捷复制栏与公共 `/workbuddy/jobs` 接口。
 
-## 2.13.9 — Antigravity 新旧版本兼容
+## 2.14.0 — Codex 26.1120 app-tools 兼容与驱动环境隔离
 
-- 支持 Antigravity 2.34 的原生 Hub 发现与认证后的本机 HTTPS；保留旧版 `--csrf_token`、HTTP、`.pb` 路径，同时兼容新版 `.db` 会话。
-- 修复删除与原生压缩拒绝 HTTPS 地址，以及 `GENERATING` 被误判为空闲的问题。
-- 已在 Windows 实机验证 Antigravity 2.34.0 的 jobs 接收与活动 Steer；旧版本路径通过隔离夹具验证。
-- Codex strict Steer 仍依赖客户端原生 IPC，`codex-ipc` 管道缺失属于另一项已知限制；未知收据保留原编号，不自动重发。
+- 保留旧版 Codex `codex-ipc`（`steerOwner` / `compactOwner`）优先直连路径，并新增支持新版 `26.1120` `codex-app-tools` 管道的显式跟进接口（`POST /codex/follow-up`、`GET /codex/follow-ups/{operationId}`、`GET /codex/capabilities` 及 `POST /codex/jobs` 的 `deliveryMode: "follow_up"`）。
+- 严格遵守 Steer 语义边界：缺失 `codex-ipc` 且仅有 `codex-app-tools` 时，严格 `/codex/steer`、`/steer` 与 `/ui/api/codex/steer` 统一返回 HTTP `501 steer_unsupported`（`delivery: "not_sent"`），不静默降级为可新建轮次的 follow-up。
+- 新旧版共用持久化操作保留、请求指纹冲突校验（`409`）及非终态（`dispatching`/`accepted`/`unknown`）只读恢复；发送前强制通过 `read_thread` 核验真实 `sourceThreadId` 与来源 turn，仅依据原生委派载荷或完整预期输入区分 `confirmed_same_turn` 与 `started_new_turn`。
+- 新增跨引擎环境变量隔离（`cleanAgentEnv`）、Windows `.cmd`/`.bat` 免 Shell 解包启动（`launchOf`）、`writer_busy`/`auth`/`quota` 错误归一化（`classifyAgentError`），并在零轮次 Codex 会话请求原生压缩时快失败（`COMPACTION_UNSUPPORTED`）。
+- 已在 Windows x64 实机验证 Codex `26.1120.5083.0` 与本机安装版（`confirmed_same_turn`、`started_new_turn`、`501 steer_unsupported`、`409` 冲突拒收与 AppData 保留）；旧版 `codex-ipc` 路径通过隔离夹具与桩函数验证。Codex `26.1120` 原生 `strictSteer` 与 `ownerCompaction` 仍不支持，未知或中断收据保留原编号只读查询，不盲目重发。
 
 ## 界面截图
 
@@ -27,7 +28,7 @@ AgentRelay 由 [GoodExts 官网](https://goodexts.com) 出品，用于连接本�
 
 ## 下载与升级
 
-[Windows x64 EXE](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.9/AgentRelay-2.13.9-win-x64.exe) · [SHA-256 校验](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.9/SHA256SUMS.txt) · [发行说明](https://github.com/wangsen2020/agentrelay-releases/releases/tag/v2.13.9)
+[Windows x64 EXE](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.14.0/AgentRelay-2.14.0-win-x64.exe) · [SHA-256 校验](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.14.0/SHA256SUMS.txt) · [发行说明](https://github.com/wangsen2020/agentrelay-releases/releases/tag/v2.14.0)
 
 等待活跃任务结束，明确退出软件后运行 EXE 覆盖安装，保留原 AppData 配置与任务记录。本版手动升级，不将旧 ZIP 自动更新通道作为此次升级路径。
 
