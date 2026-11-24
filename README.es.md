@@ -2,16 +2,17 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Português (Brasil)](README.pt-BR.md) · [Español](README.es.md)
 
-**2.13.9 · Windows 10/11 x64 · Solo instalador EXE · Sitio oficial: [GoodExts](https://goodexts.com) ([Página de AgentRelay](https://goodexts.com/es/agentrelay))**
+**2.14.0 · Windows 10/11 x64 · Solo instalador EXE · Sitio oficial: [GoodExts](https://goodexts.com) ([Página de AgentRelay](https://goodexts.com/es/agentrelay))**
 
-AgentRelay, desarrollado por [GoodExts](https://goodexts.com), conecta Codex, Grok Bot, Antigravity, Grok CLI, DeepSeek Harness y WorkBuddy locales. Codex, Antigravity, Harness, Grok CLI y Antigravity CLI admiten mensajes nativos en turnos activos (`POST /steer`); WorkBuddy se incorpora como sexto motor con reutilización de sesiones de escritorio, inicio de sesión aislado por QR oficial, ventana de chat `/ui/workbuddy`, barra rápida de copiado por mensaje y rutas públicas `/workbuddy/jobs`.
+AgentRelay, desarrollado por [GoodExts](https://goodexts.com), conecta Codex, Grok Bot, Antigravity, Grok CLI, DeepSeek Harness y WorkBuddy locales. Codex, Antigravity, Harness, Grok CLI y Antigravity CLI admiten mensajes nativos en turnos activos o follow-ups verificados; WorkBuddy se incorpora como sexto motor con reutilización de sesiones de escritorio, inicio de sesión aislado por QR oficial, ventana de chat `/ui/workbuddy`, barra rápida de copiado por mensaje y rutas públicas `/workbuddy/jobs`.
 
-## 2.13.9 — Compatibilidad entre versiones de Antigravity
+## 2.14.0 — Compatibilidad Codex 26.1120 app-tools y aislamiento de controladores
 
-- Admite el descubrimiento nativo del Hub 2.34 y HTTPS local autenticado; conserva `--csrf_token`, HTTP y archivos `.pb` anteriores, y admite sesiones `.db` recientes.
-- Corrige la validación de direcciones HTTPS para eliminar/compactar y reconoce `GENERATING` como un turno activo.
-- La recepción de jobs y el Steer activo se verificaron con Antigravity 2.34.0 en Windows; las rutas anteriores se probaron con fixtures aisladas.
-- El Steer estricto de Codex depende de su IPC nativo. La ausencia del pipe `codex-ipc` es una limitación independiente; conserve los recibos desconocidos y no reenvíe automáticamente.
+- Conserva la ruta heredada `codex-ipc` (`steerOwner` / `compactOwner`) como primera opción y agrega soporte explícito al pipe `codex-app-tools` de Codex `26.1120` (`POST /codex/follow-up`, `GET /codex/follow-ups/{operationId}`, `GET /codex/capabilities` y `POST /codex/jobs` con `deliveryMode: "follow_up"`).
+- Mantiene la fidelidad de Steer estricto: sin `codex-ipc`, `/codex/steer`, `/steer` y `/ui/api/codex/steer` devuelven HTTP `501 steer_unsupported` (`delivery: "not_sent"`) en lugar de degradarse silenciosamente a follow-up.
+- Comparte reserva persistente, detección de conflictos (`409`) y recuperación de solo lectura de estados no terminales (`dispatching`/`accepted`/`unknown`), verificando `sourceThreadId` y `sourceTurnId` mediante `read_thread` antes de enviar y diferenciando `confirmed_same_turn` de `started_new_turn` mediante la carga nativa de delegación.
+- Añade saneamiento de variables de entorno (`cleanAgentEnv`), ejecución directa de wrappers `.cmd`/`.bat` en Windows sin shell (`launchOf`), clasificación uniforme de errores (`writer_busy`/`auth`/`quota`) y fallo rápido `COMPACTION_UNSUPPORTED` en hilos vacíos de Codex.
+- Verificado en Windows x64 contra Codex `26.1120.5083.0` real (`confirmed_same_turn`, `started_new_turn`, `501 steer_unsupported`, conflictos `409` y conservación de AppData); las rutas heredadas `codex-ipc` se probaron con fixtures aisladas. `strictSteer` y `ownerCompaction` siguen sin soporte en Codex `26.1120`; consulte el recibo original sin reenviar automáticamente.
 
 ## Capturas de pantalla
 
@@ -27,7 +28,7 @@ AgentRelay, desarrollado por [GoodExts](https://goodexts.com), conecta Codex, Gr
 
 ## Descarga y actualización
 
-[EXE para Windows x64](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.9/AgentRelay-2.13.9-win-x64.exe) · [SHA-256](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.13.9/SHA256SUMS.txt) · [Notas de versión](https://github.com/wangsen2020/agentrelay-releases/releases/tag/v2.13.9)
+[EXE para Windows x64](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.14.0/AgentRelay-2.14.0-win-x64.exe) · [SHA-256](https://github.com/wangsen2020/agentrelay-releases/releases/download/v2.14.0/SHA256SUMS.txt) · [Notas de versión](https://github.com/wangsen2020/agentrelay-releases/releases/tag/v2.14.0)
 
 Espera a que terminen las tareas, cierra la aplicación y ejecuta el EXE. La configuración y los registros se conservan en el AppData existente. Esta versión se instala manualmente; el actualizador anterior basado en ZIP no es su vía de actualización.
 
